@@ -18,6 +18,16 @@ class Ship {
     this.ability = ability;
     this.crew = []
   }
+  missionStatement = () => {
+    if (this.crew.length === 0) {
+    return "Can't perform a mission yet.";
+    }
+    else if (this.crew.length !== 0 && this.name === 'Mars Ascent Vehicle') {
+      return "Ascend into low orbit"
+    }
+    else if (this.crew.length !== 0 && this.name === 'Hermes')
+      return "Interplanetary Space Travel"
+  }  
 }
 
 class CrewMember {
@@ -25,11 +35,11 @@ class CrewMember {
     this.name = name;
     this.job = job;
     this.specialSkill = specialSkill;
-    this.ship = ship;
+    this.ship = null;
   }
   enterShip = (ship) => {
     this.ship = ship;
-    this.crew.push(this.ship);
+    this.ship.crew.push(this);
   }
 }
 
